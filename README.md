@@ -1,6 +1,10 @@
 # Tenant
 
-For a tenant: notifications from the landlord, a calendar of expenses and more features to define. Sibling app: `pwa-landlord`. Made from `pwa-template`.
+For a tenant: notifications from the landlord, a calendar of expenses and more features to define. Sibling app: [pwa-landlord](https://github.com/Gekyzo/pwa-landlord).
+
+**App:** <https://gekyzo.github.io/pwa-tenant/>. Open it in Chrome on Android to install it.
+
+Made from `pwa-template`.
 
 An offline Android PWA. Plain HTML, CSS and ES modules: no build step and no dependencies.
 From the template it has:
