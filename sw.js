@@ -1,4 +1,4 @@
-const CACHE = 'pwa-tenant-shell-v2';
+const CACHE = 'pwa-tenant-shell-v3';
 
 const SHELL = [
   './',
