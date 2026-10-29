@@ -4,6 +4,10 @@ Lo que cambia para ti en cada versión de la app. La versión más nueva va prim
 
 ## Unreleased
 
+No change.
+
+## 0.1.3 - 2026-10-29
+
 - La app tiene un icono nuevo: una casa con una campana y un calendario.
 
 ## 0.1.2 - 2026-10-25

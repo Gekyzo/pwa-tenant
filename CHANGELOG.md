@@ -4,6 +4,10 @@ User-visible changes, newest first.
 
 ## Unreleased
 
+No change.
+
+## 0.1.3 - 2026-10-29
+
 - New app icon: a house with a bell and a calendar. `icons/source.png` is the new art (1254 px, converted to RGBA with its near-white background set to pure white); `npm run icons` wrote `icon-192.png`, `icon-512.png`, `icon-maskable-512.png` and `logo.png` again. The shell cache is `pwa-tenant-shell-v3`, so installed apps fetch the new icons.
 
 ## 0.1.2 - 2026-10-25
