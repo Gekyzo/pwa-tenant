@@ -4,6 +4,10 @@ Lo que cambia para ti en cada versión de la app. La versión más nueva va prim
 
 ## Unreleased
 
+No change.
+
+## 0.1.4 - 2026-10-31
+
 - **Novedades** muestra en negrita los nombres de las funciones.
 - **Borrar todos los datos** en Ajustes borra las notas y las preferencias de este dispositivo, y la app empieza como nueva.
 

@@ -4,6 +4,10 @@ User-visible changes, newest first.
 
 ## Unreleased
 
+No change.
+
+## 0.1.4 - 2026-10-31
+
 - **Bold** in the What's new notes (VER-22): `textParts` of `src/onboarding.js` also splits a pair of `**` into parts with `strong: true`, keys inside too; a `**` with no pair stays as text. `noteItem` of `src/ui/whatsnew.js` shows such a part in a `<strong>`.
 - **Delete all data** in Settings › Backup, as in pwa-shopping-list (SET-2): `resetAll` in `src/storage.js` removes each `localStorage` key of the app, `<slug>.*`, and no key of another app of the origin; the page loads again as a new install. With a session the question says that it also logs out (`signedIn` of `src/ui/account.js`). Keys `settings.reset`, `reset.confirm`, `reset.confirmLocal`, `error.resetFailed`.
 
