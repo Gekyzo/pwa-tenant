@@ -15,20 +15,41 @@ const keyPart = (text) => {
   return match ? { text: match[2] ?? '', key: true, icon: match[1] } : { text, key: true };
 };
 
+// The parts again, with the text between the two `**` of a pair as strong, keys there too. A last
+// `**` with no pair stays in the text.
+const boldParts = (parts) => {
+  const marks = parts.reduce((count, part) => count + (part.key ? 0 : part.text.split('**').length - 1), 0);
+  const paired = marks - (marks % 2);
+  let seen = 0;
+  let strong = false;
+  return parts.flatMap((part) => {
+    if (part.key) return [{ ...part, strong }];
+    return part.text.split('**').map((piece, index) => {
+      if (index === 0) return { text: piece, key: false, strong };
+      seen += 1;
+      if (seen > paired) return { text: `**${piece}`, key: false, strong };
+      strong = !strong;
+      return { text: piece, key: false, strong };
+    });
+  });
+};
+
 // The parts of a page text. A text between two backticks is a key, such as `↻` or `+`; a
-// backtick with no pair stays in the text.
+// backtick with no pair stays in the text. A text between two `**` is strong, and a strong part
+// has `strong: true`.
 export const textParts = (text) => {
   const pieces = text.split('`');
   // An even count of pieces means that the last backtick has no pair.
   const open = pieces.length % 2 === 0 ? pieces.splice(-2).join('`') : null;
   const parts = pieces.map((piece, index) => ({ text: piece, key: index % 2 === 1 }));
   if (open !== null) parts.push({ text: open, key: false });
-  return parts
+  return boldParts(parts)
     .filter((part) => part.text)
     .reduce((joined, part) => {
       const last = joined.at(-1);
-      if (last && !last.key && !part.key) last.text += part.text;
-      else joined.push(part.key ? keyPart(part.text) : { ...part });
+      if (last && !last.key && !part.key && last.strong === part.strong) last.text += part.text;
+      else joined.push({ ...part });
       return joined;
-    }, []);
+    }, [])
+    .map(({ strong, ...part }) => ({ ...(part.key ? keyPart(part.text) : part), ...(strong ? { strong: true } : {}) }));
 };

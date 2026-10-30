@@ -4,6 +4,7 @@ What changes for you in each version of the app. The newest version is first.
 
 ## Unreleased
 
+- **What's new** shows the names of the features in bold.
 - **Delete all data** in Settings removes the notes and the preferences from this device, and the app starts as new.
 
 ## 0.1.3 - 2026-10-29
